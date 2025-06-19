@@ -1,0 +1,118 @@
+.footer {
+  background-color: #ffd490;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  height: 100%;
+  width: auto;
+  margin: 0 10px 0 10px;
+}
+
+.newsletter {
+  display: flex;
+  gap: 20px;
+  flex-grow: 1;
+  max-width: 600px;
+  flex-wrap: nowrap;
+  margin: 0 10px 0 10px;
+}
+
+.newsletter input {
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 250px;
+  height: 40px;
+  background-color: rgb(255, 236, 224);
+}
+
+.newsletter button {
+  padding: 10px 20px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  max-width: 150px;
+}
+
+.social {
+  text-align: center;
+  margin: 0 10px 0 10px;
+}
+
+.social .icons {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.facebook-icon,
+.tiktok-icon,
+.instagram-icon,
+.youtube-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.footer-links h4 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-middle {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.footer-middle select {
+  background: none;
+}
+.payment-method img {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+hr {
+  margin: 2rem 0 1rem;
+  border: 0.5px solid black;
+}
+@media screen and (max-width: 600px) {
+}
