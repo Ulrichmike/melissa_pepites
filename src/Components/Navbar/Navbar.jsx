@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiUser } from "react-icons/fi";
 import logo from "../../assets/images/logo.png";
 import collection1 from "../../assets/images/collection1.jpeg";
 import menu_hamburger from "../../assets/icons/menu-hamburger.svg";
+import { getDatas } from "../../Api/Service";
 
 export function BuyByDropdown() {
   return (
@@ -268,6 +269,18 @@ function Navbar() {
     e.preventDefault();
     console.log("Recherche :", searchQuery);
   };
+
+  useEffect(() => {
+    const runLocalData = async () => {
+      try {
+        const users = await getDatas("/users");
+        console.log(users);
+      } catch (error) {
+        console.error("Erreur dans runLocalData :", error);
+      }
+    };
+    runLocalData();
+  }, []);
 
   return (
     <header className="navbar">

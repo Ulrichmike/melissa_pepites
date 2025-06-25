@@ -6,8 +6,9 @@
 }
 
 .logo-image {
-  height: 100%;
-  width: 100px; /* Maintient les proportions */
+  height: 110%;
+  width: 80px; /* Maintient les proportions */
+  padding-left: 10px;
 }
 .navbar-logo {
   height: 70px; /* Ajustez selon la taille souhaitée */
@@ -163,9 +164,7 @@ select {
     display: block;
     margin-left: 10px;
   }
-  .navbar-top {
-    /* flex-wrap: nowrap; */
-  }
+
   .search-bar {
     display: none;
   }

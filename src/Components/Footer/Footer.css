@@ -29,10 +29,10 @@
 .newsletter input {
   padding: 10px 20px;
   border: 1px solid black;
-  border-radius: 8px;
+  border-radius: 5px;
   flex: 1;
-  min-width: 250px;
-  height: 40px;
+  min-width: auto;
+  min-height: 40px;
   background-color: rgb(255, 236, 224);
 }
 
@@ -41,10 +41,10 @@
   border: none;
   background: black;
   color: white;
-  border-radius: 12px;
+  border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-  max-width: 150px;
+  min-width: 5%;
 }
 
 .social {
@@ -114,5 +114,24 @@ hr {
   margin: 2rem 0 1rem;
   border: 0.5px solid black;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 715px) {
+  .footer {
+    padding: 1rem;
+  }
+  .newsletter {
+    flex-direction: column;
+    gap: 10px;
+    margin: none;
+    min-width: 70%;
+  }
+  .newsletter input {
+    width: auto;
+  }
+  .newsletter button {
+    width: auto;
+    height: 45px;
+  }
+  .footer-top {
+    flex-direction: column;
+  }
 }

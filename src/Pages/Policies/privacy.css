@@ -1,0 +1,12 @@
+.container-privacy {
+  display: grid;
+  justify-content: center;
+  max-width: 50%;
+  margin: auto;
+  font-family: playfair;
+  font-size: 22px;
+}
+.container-privacy h2 h3 h4 {
+  margin: auto;
+  padding: 40px;
+}

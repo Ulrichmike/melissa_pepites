@@ -1,9 +1,58 @@
 import { useState } from "react";
 import "./Account.css";
+import { useAuthContext } from "../../Contexts/AuthContext";
 
 function Authentification() {
   //State
   const [activeTab, setActiveTab] = useState("register");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
+  //Recuperation des méthodes d'authentification
+  const { login, register, isAuthenticated, hasAccount, isGuest } =
+    useAuthContext();
+
+  // Gestion des changements des inputs
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Soumission du formulaire Register
+  const handleRegister = (e) => {
+    e.preventDefault();
+    register(formData.email); // Enregistre l'email (simplifié pour l'exemple)
+    // Ici, vous pourriez ajouter un appel API pour créer le compte
+    alert("Compte créé avec succès !");
+  };
+
+  // Soumission du formulaire Login
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Simule un token après connexion (remplacez par un vrai appel API)
+    const fakeToken = "fake-jwt-token";
+    login(fakeToken, formData.email);
+    alert("Connecté avec succès !");
+  };
+
+  // Si l'utilisateur est déjà connecté, afficher un message
+  if (isAuthenticated) {
+    return (
+      <div className="auth-container">
+        <div className="auth-card">
+          <h2>Vous êtes déjà connecté !</h2>
+          <button onClick={() => logout()}>Déconnexion</button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="auth-container">
@@ -24,7 +73,7 @@ function Authentification() {
         </div>
         {activeTab === "register" ? (
           <div className="register">
-            <form action="" className="form-wrap">
+            <form onSubmit={handleRegister} className="form-wrap">
               <div className="form-head">
                 <h2>REGISTER</h2>
               </div>
@@ -32,7 +81,9 @@ function Authentification() {
                 <div className="form-group">
                   <input
                     type="text"
-                    placeholder=""
+                    name="first-name"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     className="first-name"
                     required
                   />
@@ -42,7 +93,9 @@ function Authentification() {
                 <div className="form-group">
                   <input
                     type="text"
-                    placeholder=""
+                    name="last-name"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     className="last-name"
                     required
                   />
@@ -52,7 +105,9 @@ function Authentification() {
                 <div className="form-group">
                   <input
                     type="email"
-                    placeholder=""
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     className="email"
                     required
                   />
@@ -62,7 +117,9 @@ function Authentification() {
                 <div className="form-group">
                   <input
                     type="password"
-                    placeholder=""
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
                     className="password"
                     required
                   />
@@ -86,21 +143,30 @@ function Authentification() {
             </label>
           </div>
         ) : (
-          <form className="form-wrap">
+          <form onSubmit={handleLogin} className="form-wrap">
             <div className="form-head">
               <h2>CONNECTION</h2>
             </div>
 
             <div className="form-body">
               <div className="form-group">
-                <input type="email" placeholder="" className="email" required />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="email"
+                  required
+                />
                 <label>E-mail *</label>
               </div>
 
               <div className="form-group">
                 <input
                   type="password"
-                  placeholder=""
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
                   className="password"
                   required
                 />
