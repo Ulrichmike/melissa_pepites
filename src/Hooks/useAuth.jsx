@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useAuth() {
+export default function useAuth() {
   const [authState, setAuthState] = useState({
     isAuthenticated: false,
     hasAccount: false,
